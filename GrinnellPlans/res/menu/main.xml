@@ -7,10 +7,10 @@
         android:title="@string/action_settings"/>
     
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/ic_action_send_now"
+        android:id="@+id/list"
+        android:icon="@drawable/ic_action_view_as_list"
         android:showAsAction="ifRoom"
-        android:title="@string/search"/>
+        android:title="@string/list"/>
         
 
 </menu>
