@@ -2,22 +2,36 @@ package edu.grinnell.grinnellplans;
 
 import android.os.Bundle;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
-public class MainActivity extends SherlockActivity {
+public class MainActivity extends SlidingFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
+	
 	setContentView(R.layout.activity_main);
-	SlidingMenu menu = new SlidingMenu(this);
-        menu.setMode(SlidingMenu.LEFT);
+	setBehindContentView(R.layout.menu_frame);
+	
+	SlidingMenu menu = getSlidingMenu();
+        menu.setMode(SlidingMenu.LEFT_RIGHT);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         menu.setFadeDegree(0.35f);
-        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-        menu.setMenu(R.layout.sliding_menu);
+        menu.setMenu(R.layout.menu_frame);
+        getSupportFragmentManager()
+	.beginTransaction()
+	.replace(R.id.menu_frame, new LeftMenuFragment())
+	.commit();
+        
+        menu.setSecondaryMenu(R.layout.menu_frame_two);
+	getSupportFragmentManager()
+	.beginTransaction()
+	.replace(R.id.menu_frame_two, new LeftMenuFragment())
+	.commit();
+	
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 //    @Override
