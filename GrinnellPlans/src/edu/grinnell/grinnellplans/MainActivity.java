@@ -1,10 +1,11 @@
 package edu.grinnell.grinnellplans;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
@@ -14,6 +15,7 @@ public class MainActivity extends SlidingFragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	
+	//Set up action bar
 	ActionBar mActionBar = getSupportActionBar();
 	mActionBar.setCustomView(R.layout.action_bar);
 	mActionBar.setDisplayShowCustomEnabled(true);
@@ -39,9 +41,28 @@ public class MainActivity extends SlidingFragmentActivity {
         menu.setSecondaryMenu(R.layout.menu_frame_two);
 	getSupportFragmentManager()
 	.beginTransaction()
-	.replace(R.id.menu_frame_two, new LeftMenuFragment())
+	.replace(R.id.menu_frame_two, new RightMenuFragment())
 	.commit();
+	
+	
+	Button leftButton = (Button) findViewById(R.id.openLeftButton);
+	Button rightButton = (Button) findViewById(R.id.openRightButton);
 
+	leftButton.setOnClickListener(new OnClickListener(){
+	    @Override
+	    public void onClick(View arg0) {
+		getSlidingMenu().toggle();
+	    }
+	    
+	});
+	
+	rightButton.setOnClickListener(new OnClickListener(){
+	    @Override
+	    public void onClick(View arg0) {
+		getSlidingMenu().showSecondaryMenu();
+	    }
+	    
+	});
     }
 
 //    @Override
