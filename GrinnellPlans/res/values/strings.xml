@@ -6,5 +6,5 @@
     <string name="hello_world">Hello world!</string>
     <string name="search">Search</string>
     <string name="list">List</string>
-
+    <string name="save">Save</string>
 </resources>

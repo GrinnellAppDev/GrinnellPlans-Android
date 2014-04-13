@@ -9,8 +9,52 @@
     tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/username"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/hello_world" />
+
+    <EditText
+        android:id="@+id/plan_text"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:layout_marginBottom="45dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Edit Plan" >
+        
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/update"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/username"
+        android:layout_alignBottom="@+id/username"
+        android:layout_alignRight="@+id/plan_text"
+        android:gravity="right"
+        android:text="@string/hello_world" />
+
+    <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="15dp"
         android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/save_plan"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/save" />
 
 </RelativeLayout>

@@ -1,9 +1,16 @@
 package edu.grinnell.grinnellplans;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Scroller;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -63,8 +70,51 @@ public class MainActivity extends SlidingFragmentActivity {
 	    }
 	    
 	});
+	
+	//Set up text fields
+	loadPlan();
+	
     }
 
+    
+    public void loadPlan() {
+    	//get local data from JSON
+    	String username = "nguyenti";
+    	String name = "Super cool person";
+    	String update = "4/13/14 1:02AM";
+    	String plantext = "What's brown and sticky? A stick.";
+    	//set user name
+    	TextView un = (TextView) findViewById(R.id.username);
+    	un.setText("[" + username + "]");
+    	//set last updated
+    	TextView date = (TextView) findViewById(R.id.update);
+    	date.setText(update);
+    	//set name 
+    	TextView n = (TextView) findViewById(R.id.name);
+    	n.setText(name);
+    	//load content of plan
+    	EditText editText = (EditText)findViewById(R.id.plan_text);
+    	editText.setText(plantext);
+    	Button savePlan = (Button) findViewById(R.id.save_plan);
+    	savePlan.setOnTouchListener(new OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN ) {
+                	//save plan
+                	EditText editText = (EditText)findViewById(R.id.plan_text);
+                	String text = editText.getText().toString();
+                	Toast quickGreeting = Toast.makeText(getApplicationContext(), "Saved",
+            				Toast.LENGTH_SHORT);
+            		quickGreeting.show();
+                }
+
+                return false;
+            }
+        });
+    }
+    
+    
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //	getSupportMenuInflater().inflate(R.menu.main, menu);
