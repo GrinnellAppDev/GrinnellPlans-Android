@@ -7,12 +7,11 @@ import android.view.ViewGroup;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
-public class LeftMenuFragment extends SherlockFragment{
+public class LeftMenuFragment extends SherlockFragment {
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-	    Bundle savedInstanceState) {
-	return inflater.inflate(R.layout.sliding_menu, null);
-    }
-    
-    
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.left_sliding_menu, null);
+	}
+
 }

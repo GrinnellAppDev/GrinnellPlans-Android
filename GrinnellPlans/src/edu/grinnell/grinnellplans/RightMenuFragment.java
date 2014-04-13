@@ -11,6 +11,6 @@ public class RightMenuFragment extends SherlockFragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	    Bundle savedInstanceState) {
-	return inflater.inflate(R.layout.sliding_menu, null);
+	return inflater.inflate(R.layout.right_sliding_menu, null);
     }
 }
